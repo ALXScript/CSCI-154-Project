@@ -23,9 +23,9 @@ while exit != True:
         craterCF = 1.3
         distance = tool.validFloat("Please enter the distance from the Earth in Meters")
         gravAcc = cmath.getGravAcc(mass, distance)
-        gravAccSurface
-        densityImpactor
-        densitySurface
+        gravAccSurface = gravAcc
+        densityImpactor = tool.getDensityImpactor("Please select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4)Iron\n")
+        densitySurface = tool.getDensityTarget("Please selectt he Earth's density:\n(1)Sedimentary\n(2)Igneous")
 
         print("Case A")
 

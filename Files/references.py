@@ -1,6 +1,20 @@
 #any references to real life structures go here
 #define all references in METERS
 
+#Dictionaries for the Densities - IN Kg/(m^3)
+dicProjectileDensity = {
+	"ice": 1000,
+	"porous": 1500,
+	"dense": 3000,
+	"iron": 8000
+}
+
+dicTargetDensity = {
+	"sedimentary": 2500,
+	#"crystalline": ,
+	"igneous": 2750
+}
+
 #field references
 def soccerFieldWidth:
     return 120

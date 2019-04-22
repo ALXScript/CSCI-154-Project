@@ -1,6 +1,7 @@
 #script for any tools we create for ourselves
 #i.e. functions, classes, etc.
 import pandas as pandas
+import references as rf
 
 df=read_csv("Datasets/meteorite-landings.csv")
 
@@ -42,4 +43,30 @@ def validInt(passPropmt):
     
     return intValue
 
-#input validation - Density
+#input validation - Density impactor
+def getDensityImpactor(prompt):
+    while True:
+        intChoice = validInt(passPropmt)
+        
+        if intChoice == 1:
+            return rf.dicProjectileDensity["ice"]
+        elif intChoice == 2:
+            return rf.dicProjectileDensity["porous"]
+        elif intChoice == 3:
+            return rf.dicProjectileDensity["dense"]
+        elif intChoice == 4:
+            return rf.dicProjectileDensity["iron"]
+        else:
+            print("Invalid choice, please try again")
+
+#input validation - Density Target
+def getDensityTarget(prompt):
+    while True:
+        intChoice = validInt(passPropmt)
+        
+        if intChoice == 1:
+            return rf.dicProjectileDensity["sedimentary"]
+        elif intChoice == 2:
+            return rf.dicProjectileDensity["igneous"]
+        else:
+            print("Invalid choice, please try again")
