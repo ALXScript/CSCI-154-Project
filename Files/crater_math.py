@@ -1,5 +1,18 @@
 #Math formulas from Theory_Paper.pdf go here
 
+#Dictionaries for the Densities - IN Kg/(m^3)
+dicProjectileDensity = {
+	"ice": 1000,
+	"porous": 1500,
+	"dense": 3000,
+	"iron": 8000
+}
+
+dicTargetDensity = {
+	"sedimentary": 2500,
+	#"crystalline": ,
+	"igneous": 2750
+}
 
 def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface):
 	'''	based off of: https://web.archive.org/web/20170404094017/palaeo.gly.bris.ac.uk/communication/brana/equation.html
@@ -11,11 +24,11 @@ def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor,
 		densityImpactor = denity of impactor in g/ cubic cm
 		densitySurface = density of surface also g / cubic cm
 	'''
-		densImp = densityImpactor/1000.00
-		densSurf = densitySurface/1000.00
+	densImp = densityImpactor/1000.00
+	densSurf = densitySurface/1000.00
 
-		diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densImp/densSurf)), .2941)
-		return diameter
+	diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densImp/densSurf)), .2941)
+	return diameter
 
 def solveKinEnergy(mass, velocity):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
