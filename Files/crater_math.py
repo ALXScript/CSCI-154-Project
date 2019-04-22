@@ -39,9 +39,9 @@ def solveKinEnergy(mass, velocity):
 		kinEnergy = kinetic energy in joules
 
 	'''
-	massKG = mass/1000.00
+	#massKG = mass/1000.00
 	
-	kinEnergy = (.5) * massKG * pow(velocity, 2)
+	kinEnergy = (.5) * mass * pow(velocity, 2)
 	return kinEnergy
 
 def getVolumeMet(density, mass):
@@ -51,8 +51,11 @@ def getVolumeMet(density, mass):
 		mass = mass in grams
 		volume = volume of meteorite in m^3
 	'''
-	massKG = mass/1000.00
+	#massKG = mass/1000.00
 
-	volume = massKG/density
+	volume = mass/density
 	return volume
 
+#function for getting gravitational acceleration
+def getGravAcc(mass, distance):
+	return ((9.8 * mass) / pow(distance, 2))

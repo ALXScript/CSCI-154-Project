@@ -1,7 +1,7 @@
 #Main page for the application, including UI
-import crater_math
+import crater_math as cmath
 import calculations
-import our_tools
+import our_tools as tool
 
 #boolean for verifying user data
 exit = False
@@ -15,7 +15,18 @@ while exit != True:
 
     #begin making the choices
     if user_input == 'A' or user_input == 'a':
-        #begin Temporary_1 process
+        #Simulate Your Own Crater
+        #define local variables
+        mass = tool.validFloat("Please enter the Mass of the asteroid in Kilograms:")
+        velocity = tool.validFloat("Please enter the Velocity of the asteroid in Meters/Second:")
+        kinEnergy = cmath.solveKinEnergy(mass, velocity)
+        craterCF = 1.3
+        distance = tool.validFloat("Please enter the distance from the Earth in Meters")
+        gravAcc = cmath.getGravAcc(mass, distance)
+        gravAccSurface
+        densityImpactor
+        densitySurface
+
         print("Case A")
 
     elif user_input == 'B' or user_input == 'b':

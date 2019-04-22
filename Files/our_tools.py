@@ -5,23 +5,23 @@ import pandas as pandas
 df=read_csv("Datasets/meteorite-landings.csv")
 
 #input validation - double
-def validDouble(passPropmt):
+def validFloat(passPropmt):
     while True:
         #prompt the user for entering a double
         try:
-            doubleValue = double(input(passPropmt))
+            floatValue = float(input(passPropmt))
         #it isn't a double
         except ValueError:
             print("Invalid input. Please try again.")
             continue
         
-        if doubleValue < 0:
+        if floatValue < 0:
             print("Please enter a non-negative number")
             continue
         else:
             break
     
-    return doubleValue
+    return floatValue
 
 #input validation - Integer
 def validInt(passPropmt):
@@ -41,3 +41,5 @@ def validInt(passPropmt):
             break
     
     return intValue
+
+#input validation - Density
