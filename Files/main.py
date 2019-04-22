@@ -2,6 +2,7 @@
 import crater_math as cmath
 import calculations
 import our_tools as tool
+import references as rf
 
 #boolean for verifying user data
 exit = False
@@ -26,6 +27,18 @@ while exit != True:
         gravAccSurface = gravAcc
         densityImpactor = tool.getDensityImpactor("Please select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4)Iron\n")
         densitySurface = tool.getDensityTarget("Please selectt he Earth's density:\n(1)Sedimentary\n(2)Igneous")
+
+        #Calculate the diameter
+        craterDiameter = cmath.solveDiameter(1.3, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface)
+
+        #get the common width comparison
+        howManySoccer = craterDiameter / rf.soccerFieldWidth
+        howManyFootball = craterDiameter / rf.footballStaiumWidth
+        howoManyBasketball = craterDiameter / rf.basketballCourtWidth
+
+        print("The diameter of the crater is: ", craterDiameter)
+        if howManySoccer >= 2:
+            print("That is %f")
 
         print("Case A")
 
