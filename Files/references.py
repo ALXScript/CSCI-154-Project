@@ -16,45 +16,47 @@ dicTargetDensity = {
 }
 
 #field references
-soccerFieldWidth = 120
+def soccerFieldWidth():
+    return 120
 
-def footballStadiumWidth = 90
+def footballStadiumWidth()
+    return 90
 
-def basketballCourtWidth:
+def basketballCourtWidth():
     return 28
 
 #Local References
-def csuFresnoSquareMeters:
+def csuFresnoSquareMeters():
     return 1.469e6
 
 #American References
-def statueOfLibertyHeight:
+def statueOfLibertyHeight():
     return 93
 
-def empireStateBuildingHeight:
+def empireStateBuildingHeight():
     return 443
 
-def spaceNeedleHeight:
+def spaceNeedleHeight():
     return 184
 
 #European References
-def romanColosseumWidth:
+def romanColosseumWidth():
     return 156
 
-def romanColosseumSquareMeters:
+def romanColosseumSquareMeters():
     return 24000
 
-def eiffelTowerHeight:
+def eiffelTowerHeight():
     return 324
 
-def bigBenHeight:
+def bigBenHeight():
     return 93
 
 #Other Foreign Country References
 #Dubai Skyscraper
-def burjKhalifaHeight:
+def burjKhalifaHeight():
     return 829
 
 #chinese skyscraper
-def shanghaiTowerHeight:
+def shanghaiTowerHeight():
     return 632
