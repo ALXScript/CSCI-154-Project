@@ -17,12 +17,13 @@ while exit != True:
     #begin making the choices
     #simulate your own crater
     if user_input == 'A' or user_input == 'a':
-        craterDiameter = calc.simulateCustomCrater()
+        craterDiameter, craterDepth = calc.simulateCustomCrater()
 
         #display the diameter
         print("\nThe diameter of the crater is %f meters wide!" % craterDiameter)
+        print("\nThe depth of the crater is %f meters deep!\n" % craterDepth)
 
-        rf.returnReferences(craterDiameter)
+        rf.returnReferences(craterDiameter, craterDepth)
 
     #Get Crater Data from Dataset
     elif user_input == 'B' or user_input == 'b':

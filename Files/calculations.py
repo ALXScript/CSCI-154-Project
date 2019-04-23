@@ -22,5 +22,6 @@ def simulateCustomCrater():
 
     #Calculate the diameter
     craterDiameter = cmath.solveDiameter(1.3, 1, 1, kinEnergy, densityImpactor, densitySurface)
+    craterDepth = cmath.calcdeth(craterDiameter)
 
-    return craterDiameter
+    return craterDiameter, craterDepth

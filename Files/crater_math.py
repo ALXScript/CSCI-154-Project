@@ -1,4 +1,4 @@
-import math
+import math 
 
 #Math formulas from Theory_Paper.pdf go here
 import math
@@ -46,12 +46,12 @@ def getDiameterAsteroid(density, mass):
 	'''
 	top = 3 * mass
 	bot = 4 * math.pi * density
-	radius = sqrt(top/bot)
-	return radius * 2
+	radius = math.sqrt(top/bot)
 
+	return (radius * 2)
 def calcdeth(diameter):
 	if (diameter <= 1400):
-		depth = diameter * math.tan(.1423)
+		depth = diameter * math.tan(.1423) 
 	else:
 		depth = diameter * math.tan(.0747)
 	return depth
