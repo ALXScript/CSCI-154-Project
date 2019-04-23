@@ -10,27 +10,37 @@ def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor,
 		densityImpactor = denity of impactor in g/ cubic cm
 		densitySurface = density of surface also g / cubic cm
 	'''
-	densImp = densityImpactor/1000.00
-	densSurf = densitySurface/1000.00
+	#densImp = densityImpactor/1000.00
+	#densSurf = densitySurface/1000.00
 
-	diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densImp/densSurf)), .2941)
+	#diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densImp/densSurf)), .2941)
+	diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densityImpactor/densitySurface)), .2941)
 	return diameter
 
-def solveKinEnergy(mass, velocity):
+def solveKinEnergy(mass, velocity, distance):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
 
-		mass = mass of metoerite in g to convert to kg
-		s = velocity of meteorite in meters/second (according to webpage avg speed of metoerites is 20k m/s)
+		mass = mass of metoerite in kg
+		s = velocity of meteorite in km/s - convert to meters/second (according to webpage avg speed of metoerites is 20k m/s)
 
-		kinEnergy = kinetic energy in joules
-
+		kinEnergy = kinetic energy in joules - Kg * m^2 / s^2
+		
+		Convert Joules to KiloTons of TNT - j / 4.1842e12
 	'''
-	#massKG = mass/1000.00
+	#convert velocity to M/s
+	velocityMeters = velocity * 1000
 	
-	kinEnergy = (.5) * mass * pow(velocity, 2)
-	return kinEnergy
+	#get KEinitial and PEinitial
+	kinEnergyInitial = (.5) * mass * pow(velocityMeters, 2)
+	potentialEnergyInitial = mass * 9.8 * distance
 
-def getVolumeMet(density, mass):
+	#get KEfinal
+	kinEnergyFinal = kinEnergyInitial + potentialEnergyInitial
+
+	#convert KEfinal to kilotons
+	return (kinEnergyFinal / 4.184e12)
+
+def getVolumeMet(diameter):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
 		
 		density = density of meteorite material in kg/m^3
@@ -39,11 +49,12 @@ def getVolumeMet(density, mass):
 	'''
 	#massKG = mass/1000.00
 
-	volume = mass/density
+	#volume = mass/density
+	volume = float(4/3) * math.pi * pow((diameter / 2), 2)
 	return volume
 
 #function for getting gravitational acceleration
-def getGravAcc(mass, distance):
+def getGravAcc():
 	#define the universal gravitational constant - m^3 / kg*s^2
 	uniGravConst = 6.673e-11
 

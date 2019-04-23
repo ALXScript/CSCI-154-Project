@@ -15,17 +15,37 @@ while exit != True:
     user_input = input("What would you like to do: ")
 
     #begin making the choices
+    #simulate your own crater
     if user_input == 'A' or user_input == 'a':
-        #Simulate Your Own Crater
         #define local variables
-        mass = tool.validFloat("Please enter the Mass of the asteroid in Kilograms: ")
-        velocity = tool.validFloat("Please enter the Velocity of the asteroid in Meters/Second: ")
-        kinEnergy = cmath.solveKinEnergy(mass, velocity)
-        craterCF = 1.3
-        distance = tool.validFloat("Please enter the distance from the Earth in Meters: ")
-        gravAcc = cmath.getGravAcc(mass, distance)
-        gravAccSurface = gravAcc
+
+        #get the diameter - in Km
+        diameter = tool.validFloat("Please enter the Diameter of the Asteroid in Kilometers: ")
+
+        #get the density of the Asteroid - in Kg/m^3
         densityImpactor = tool.getDensityImpactor("Please select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4) Iron\n")
+        
+        #get the mass from the volume and density - in Kg
+        mass = volume(diameter) * densityImpactor
+        
+        #get the velocity of the Asteroid - in Km/s
+        velocity = tool.validFloat("Please enter the Velocity of the asteroid in Kilometers/Second: ")
+
+        #get the distance from the surface of the earth to the asteroid - in Km
+        distance = tool.validFloat("Please enter the distance from the Earth in Kilometers: ")
+ 
+        #use the calculated mass and given velocity for KE - in KiloTons of TNT
+        kinEnergy = cmath.solveKinEnergy(mass, velocity, distance)
+
+        #Crater CF Constant for craters > 4km (will keep 1.3 for now)
+        craterCF = 1.3
+
+        #get the gravitational acceleration on the surface of the earth
+        gravAcc = cmath.getGravAcc()
+        
+        #get the acceleration of the earth
+        gravAccSurface = 0.006
+        
         densitySurface = tool.getDensityTarget("Please select the Earth's density:\n(1) Sedimentary\n(2) Igneous\n")
 
         #Calculate the diameter
