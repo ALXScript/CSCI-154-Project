@@ -1,3 +1,5 @@
+import math 
+
 #Math formulas from Theory_Paper.pdf go here
 
 #Dictionaries for the Densities - IN Kg/(m^3)
@@ -56,3 +58,9 @@ def getVolumeMet(density, mass):
 	volume = massKG/density
 	return volume
 
+def calcdeth(diameter):
+	if (diameter <= 1400):
+		depth = diameter * math.tan(.1423) 
+	else:
+		depth = diameter * math.tan(.0747)
+	return depth
