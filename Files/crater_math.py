@@ -44,4 +44,14 @@ def getVolumeMet(density, mass):
 
 #function for getting gravitational acceleration
 def getGravAcc(mass, distance):
-	return ((9.8 * (mass * 1000)) / pow(distance, 2))
+	#define the universal gravitational constant - m^3 / kg*s^2
+	uniGravConst = 6.673e-11
+
+	#define the mass of the earth - Kg
+	earthMass = 5.972e24
+
+	#define the radius of the earth - meters
+	earthRadius = 6.356e6
+
+	#return the gravitational acceleration on earth
+	return ((uniGravConst * earthMass) / pow(earthRadius, 2))
