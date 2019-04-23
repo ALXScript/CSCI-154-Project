@@ -1,4 +1,5 @@
 #Math formulas from Theory_Paper.pdf go here
+import math
 
 #Dictionaries for the Densities - IN Kg/(m^3)
 dicProjectileDensity = {
@@ -44,15 +45,15 @@ def solveKinEnergy(mass, velocity):
 	kinEnergy = (.5) * massKG * pow(velocity, 2)
 	return kinEnergy
 
-def getVolumeMet(density, mass):
+def getDiameterMet(density, mass):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
 		
 		density = density of meteorite material in kg/m^3
 		mass = mass in grams
-		volume = volume of meteorite in m^3
+
 	'''
-	massKG = mass/1000.00
-
-	volume = massKG/density
-	return volume
-
+		top = 3 * M
+		bot = 4 * math.pi * density
+		radius = sqrt(top/bot)
+		
+		return (radius * 2)
