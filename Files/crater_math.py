@@ -3,7 +3,7 @@ import math
 
 def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface):
 	'''	based off of: https://web.archive.org/web/20170404094017/palaeo.gly.bris.ac.uk/communication/brana/equation.html
-		
+
 		craterCF = Crater Collapse Factor
 		gravAcc = Gravitational Acceleration at surface of Earth
 		gravAccSurface = Acceleration at the surface of body on which crater is formed
@@ -22,40 +22,24 @@ def solveKinEnergy(mass, velocity):
 		s = velocity of meteorite in km/s - convert to meters/second (according to webpage avg speed of metoerites is 20k m/s)
 
 		kinEnergy = kinetic energy in joules - Kg * m^2 / s^2
-		
+
 		Convert Joules to KiloTons of TNT - j / 4.1842e12
 	'''
 	#convert velocity to M/s
 	velocityMeters = velocity * 1000
-	
+
 	#get KEinitial and PEinitial
 	kinEnergyInitial = (.5) * mass * pow(velocityMeters, 2)
 
-	return kinEnergyInitial
-
-def getVolumeMet(diameter):
+def getDiameterMet(density, mass):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
-		
-		diameter = diameter of asteroid in km
-		volume = volume of meteorite in m^3
+
+		density = density of meteorite material in kg/m^3
+		mass = mass in grams
+
 	'''
-	#convert diameter (km) to meters
-	diameterMeters = diameter * 1000
+		top = 3 * M
+		bot = 4 * math.pi * density
+		radius = sqrt(top/bot)
 
-	#volume = mass/density
-	volume = float(4/3) * math.pi * pow((diameterMeters / 2), 2)
-	return volume
-
-#function for getting gravitational acceleration
-def getGravAcc():
-	#define the universal gravitational constant - m^3 / kg*s^2
-	uniGravConst = 6.673e-11
-
-	#define the mass of the earth - Kg
-	earthMass = 5.972e24
-
-	#define the radius of the earth - meters
-	earthRadius = 6.356e6
-
-	#return the gravitational acceleration on earth
-	return ((uniGravConst * earthMass) / pow(earthRadius, 2))
+		return (radius * 2)

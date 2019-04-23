@@ -15,13 +15,13 @@ def validFloat(passPropmt):
         except ValueError:
             print("Invalid input. Please try again.")
             continue
-        
+
         if floatValue < 0:
             print("Please enter a non-negative number")
             continue
         else:
             break
-    
+
     return floatValue
 
 #input validation - Integer
@@ -34,20 +34,20 @@ def validInt(passPropmt):
         except ValueError:
             print("Invalid input. Please try again.")
             continue
-        
+
         if intValue < 0:
             print("Please enter a non-negative number")
             continue
         else:
             break
-    
+
     return intValue
 
 #input validation - Density impactor
 def getDensityImpactor(passPrompt):
     while True:
         intChoice = validInt(passPrompt)
-        
+
         if intChoice == 1:
             return rf.dicProjectileDensity["ice"]
         elif intChoice == 2:
@@ -63,7 +63,7 @@ def getDensityImpactor(passPrompt):
 def getDensityTarget(passPrompt):
     while True:
         intChoice = validInt(passPrompt)
-        
+
         if intChoice == 1:
             return rf.dicTargetDensity["sedimentary"]
         elif intChoice == 2:
