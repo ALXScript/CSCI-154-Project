@@ -17,25 +17,24 @@ while exit != True:
     #begin making the choices
     #simulate your own crater
     if user_input == 'A' or user_input == 'a':
-        #define local variables
-
         #get the diameter - in Km
-        diameter = tool.validFloat("Please enter the Diameter of the Asteroid in Kilometers: ")
+        diameter = tool.validFloat("\nPlease enter the Diameter of the Asteroid in Kilometers: ")
 
         #get the density of the Asteroid - in Kg/m^3
-        densityImpactor = tool.getDensityImpactor("Please select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4) Iron\n")
+        densityImpactor = tool.getDensityImpactor("\nPlease select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4) Iron\n")
         
         #get the mass from the volume and density - in Kg
-        mass = volume(diameter) * densityImpactor
+        mass = cmath.getVolumeMet(diameter) * densityImpactor
+        #print("mass is " , mass)
         
         #get the velocity of the Asteroid - in Km/s
-        velocity = tool.validFloat("Please enter the Velocity of the asteroid in Kilometers/Second: ")
+        velocity = tool.validFloat("\nPlease enter the Velocity of the asteroid in Kilometers/Second: ")
 
         #get the distance from the surface of the earth to the asteroid - in Km
-        distance = tool.validFloat("Please enter the distance from the Earth in Kilometers: ")
+        #distance = tool.validFloat("Please enter the distance from the Earth in Kilometers: ")
  
         #use the calculated mass and given velocity for KE - in KiloTons of TNT
-        kinEnergy = cmath.solveKinEnergy(mass, velocity, distance)
+        kinEnergy = cmath.solveKinEnergy(mass, velocity)
 
         #Crater CF Constant for craters > 4km (will keep 1.3 for now)
         craterCF = 1.3
@@ -46,27 +45,16 @@ while exit != True:
         #get the acceleration of the earth
         gravAccSurface = 0.006
         
-        densitySurface = tool.getDensityTarget("Please select the Earth's density:\n(1) Sedimentary\n(2) Igneous\n")
+        densitySurface = tool.getDensityTarget("\nPlease select the Earth's density:\n(1) Sedimentary\n(2) Igneous\n")
 
         #Calculate the diameter
-        craterDiameter = cmath.solveDiameter(1.3, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface)
+        #craterDiameter = cmath.solveDiameter(1.3, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface)
+        craterDiameter = cmath.solveDiameter(1.3, 1, 1, kinEnergy, densityImpactor, densitySurface)
 
-        #get the common width comparison
-        howManySoccer = craterDiameter / rf.soccerFieldWidth()
-        howManyFootball = craterDiameter / rf.footballStadiumWidth()
-        howManyBasketball = craterDiameter / rf.basketballCourtWidth()
+        #display the diameter
+        print("\nThe diameter of the crater is %f meters wide!" % craterDiameter)
 
-        print("The diameter of the crater is %f meters wide!" % craterDiameter)
-        if howManySoccer >= 2:
-            print("That is %f many Soccer fields!" % howManySoccer)
-        
-        if howManyFootball >= 2:
-            print("That is %f many Football fields!" % howManyFootball)
-        
-        if howManyBasketball >= 2:
-            print("That is %f many Basketball courts!" % howManyBasketball)
-
-        print("Case A")
+        rf.returnReferences(craterDiameter)
 
     elif user_input == 'B' or user_input == 'b':
         #begin Temporary_2 process

@@ -1,4 +1,5 @@
 #Math formulas from Theory_Paper.pdf go here
+import math
 
 def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface):
 	'''	based off of: https://web.archive.org/web/20170404094017/palaeo.gly.bris.ac.uk/communication/brana/equation.html
@@ -14,10 +15,10 @@ def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor,
 	#densSurf = densitySurface/1000.00
 
 	#diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densImp/densSurf)), .2941)
-	diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densityImpactor/densitySurface)), .2941)
+	diameter = .7 * craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densityImpactor/densitySurface)), .2941)
 	return diameter
 
-def solveKinEnergy(mass, velocity, distance):
+def solveKinEnergy(mass, velocity):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
 
 		mass = mass of metoerite in kg
@@ -32,25 +33,26 @@ def solveKinEnergy(mass, velocity, distance):
 	
 	#get KEinitial and PEinitial
 	kinEnergyInitial = (.5) * mass * pow(velocityMeters, 2)
-	potentialEnergyInitial = mass * 9.8 * distance
+	#potentialEnergyInitial = mass * 9.8 * distance
 
 	#get KEfinal
-	kinEnergyFinal = kinEnergyInitial + potentialEnergyInitial
+	#kinEnergyFinal = kinEnergyInitial + potentialEnergyInitial
 
 	#convert KEfinal to kilotons
-	return (kinEnergyFinal / 4.184e12)
+	#return (kinEnergyFinal / 4.184e12)
+	return kinEnergyInitial
 
 def getVolumeMet(diameter):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
 		
-		density = density of meteorite material in kg/m^3
-		mass = mass in grams
+		diameter = diameter of asteroid in km
 		volume = volume of meteorite in m^3
 	'''
-	#massKG = mass/1000.00
+	#convert diameter (km) to meters
+	diameterMeters = diameter * 1000
 
 	#volume = mass/density
-	volume = float(4/3) * math.pi * pow((diameter / 2), 2)
+	volume = float(4/3) * math.pi * pow((diameterMeters / 2), 2)
 	return volume
 
 #function for getting gravitational acceleration
