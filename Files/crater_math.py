@@ -44,4 +44,4 @@ def getVolumeMet(density, mass):
 
 #function for getting gravitational acceleration
 def getGravAcc(mass, distance):
-	return ((9.8 * mass) / pow(distance, 2))
+	return ((9.8 * (mass * 1000)) / pow(distance, 2))

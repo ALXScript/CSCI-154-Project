@@ -44,9 +44,9 @@ def validInt(passPropmt):
     return intValue
 
 #input validation - Density impactor
-def getDensityImpactor(prompt):
+def getDensityImpactor(passPrompt):
     while True:
-        intChoice = validInt(passPropmt)
+        intChoice = validInt(passPrompt)
         
         if intChoice == 1:
             return rf.dicProjectileDensity["ice"]
@@ -60,13 +60,13 @@ def getDensityImpactor(prompt):
             print("Invalid choice, please try again")
 
 #input validation - Density Target
-def getDensityTarget(prompt):
+def getDensityTarget(passPrompt):
     while True:
-        intChoice = validInt(passPropmt)
+        intChoice = validInt(passPrompt)
         
         if intChoice == 1:
-            return rf.dicProjectileDensity["sedimentary"]
+            return rf.dicTargetDensity["sedimentary"]
         elif intChoice == 2:
-            return rf.dicProjectileDensity["igneous"]
+            return rf.dicTargetDensity["igneous"]
         else:
             print("Invalid choice, please try again")

@@ -18,27 +18,33 @@ while exit != True:
     if user_input == 'A' or user_input == 'a':
         #Simulate Your Own Crater
         #define local variables
-        mass = tool.validFloat("Please enter the Mass of the asteroid in Kilograms:")
-        velocity = tool.validFloat("Please enter the Velocity of the asteroid in Meters/Second:")
+        mass = tool.validFloat("Please enter the Mass of the asteroid in Kilograms: ")
+        velocity = tool.validFloat("Please enter the Velocity of the asteroid in Meters/Second: ")
         kinEnergy = cmath.solveKinEnergy(mass, velocity)
         craterCF = 1.3
-        distance = tool.validFloat("Please enter the distance from the Earth in Meters")
+        distance = tool.validFloat("Please enter the distance from the Earth in Meters: ")
         gravAcc = cmath.getGravAcc(mass, distance)
         gravAccSurface = gravAcc
-        densityImpactor = tool.getDensityImpactor("Please select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4)Iron\n")
-        densitySurface = tool.getDensityTarget("Please selectt he Earth's density:\n(1)Sedimentary\n(2)Igneous")
+        densityImpactor = tool.getDensityImpactor("Please select the Asteroid's density:\n(1) Ice\n(2) Porous\n(3) Dense\n(4) Iron\n")
+        densitySurface = tool.getDensityTarget("Please select the Earth's density:\n(1) Sedimentary\n(2) Igneous\n")
 
         #Calculate the diameter
         craterDiameter = cmath.solveDiameter(1.3, gravAcc, gravAccSurface, kinEnergy, densityImpactor, densitySurface)
 
         #get the common width comparison
-        howManySoccer = craterDiameter / rf.soccerFieldWidth
-        howManyFootball = craterDiameter / rf.footballStaiumWidth
-        howoManyBasketball = craterDiameter / rf.basketballCourtWidth
+        howManySoccer = craterDiameter / rf.soccerFieldWidth()
+        howManyFootball = craterDiameter / rf.footballStadiumWidth()
+        howManyBasketball = craterDiameter / rf.basketballCourtWidth()
 
-        print("The diameter of the crater is: ", craterDiameter)
+        print("The diameter of the crater is %f meters wide!" % craterDiameter)
         if howManySoccer >= 2:
-            print("That is %f")
+            print("That is %f many Soccer fields!" % howManySoccer)
+        
+        if howManyFootball >= 2:
+            print("That is %f many Football fields!" % howManyFootball)
+        
+        if howManyBasketball >= 2:
+            print("That is %f many Basketball courts!" % howManyBasketball)
 
         print("Case A")
 
