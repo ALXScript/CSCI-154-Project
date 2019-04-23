@@ -19,7 +19,7 @@ dicTargetDensity = {
 def soccerFieldWidth():
     return 120
 
-def footballStadiumWidth()
+def footballStadiumWidth():
     return 90
 
 def basketballCourtWidth():
