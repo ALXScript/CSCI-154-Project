@@ -16,11 +16,9 @@ dicTargetDensity = {
 }
 
 #field references
-def soccerFieldWidth:
-    return 120
+soccerFieldWidth = 120
 
-def footballStadiumWidth:
-    return 90
+def footballStadiumWidth = 90
 
 def basketballCourtWidth:
     return 28
