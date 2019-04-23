@@ -3,7 +3,7 @@
 import pandas as pandas
 import references as rf
 
-df=pandas.read_csv("Datasets/meteorite-landings.csv")
+#df=pandas.read_csv("Datasets/meteorite-landings.csv")
 
 #input validation - double
 def validFloat(passPropmt):

@@ -13,6 +13,7 @@ def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor,
 	'''
 
 	diameter = .7 * craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densityImpactor/densitySurface)), .2941)
+
 	return diameter
 
 def solveKinEnergy(mass, velocity):
@@ -31,15 +32,18 @@ def solveKinEnergy(mass, velocity):
 	#get KEinitial and PEinitial
 	kinEnergyInitial = (.5) * mass * pow(velocityMeters, 2)
 
-def getDiameterMet(density, mass):
+	return kinEnergyInitial
+
+#function for getting the diameter of the asteroid
+def getDiameterAsteroid(density, mass):
 	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
 
 		density = density of meteorite material in kg/m^3
 		mass = mass in grams
 
 	'''
-		top = 3 * M
-		bot = 4 * math.pi * density
-		radius = sqrt(top/bot)
+	top = 3 * mass
+	bot = 4 * math.pi * density
+	radius = sqrt(top/bot)
 
-		return (radius * 2)
+	return (radius * 2)
