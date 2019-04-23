@@ -83,13 +83,13 @@ def returnReferences(passDiameter):
 
     #field references display
     if howManySoccer >= 1:
-        print("That is %f Soccer fields!\n" % howManySoccer)
+        print("That is %f Soccer fields!\n" % round(howManySoccer, 1))
         
     if howManyFootball >= 1:
-        print("That is %f Football fields!\n" % howManyFootball)
+        print("That is %f Football fields!\n" % round(howManyFootball, 1))
         
     if howManyBasketball >= 1:
-        print("That is %f Basketball courts!\n" % howManyBasketball)
+        print("That is %f Basketball courts!\n" % round(howManyBasketball, 1))
         
     #building references display - American
     if howManyStatueOfLiberty >= 1:

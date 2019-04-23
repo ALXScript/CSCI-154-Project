@@ -11,10 +11,7 @@ def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor,
 		densityImpactor = denity of impactor in g/ cubic cm
 		densitySurface = density of surface also g / cubic cm
 	'''
-	#densImp = densityImpactor/1000.00
-	#densSurf = densitySurface/1000.00
 
-	#diameter = .07* craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densImp/densSurf)), .2941)
 	diameter = .7 * craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densityImpactor/densitySurface)), .2941)
 	return diameter
 
@@ -33,13 +30,7 @@ def solveKinEnergy(mass, velocity):
 	
 	#get KEinitial and PEinitial
 	kinEnergyInitial = (.5) * mass * pow(velocityMeters, 2)
-	#potentialEnergyInitial = mass * 9.8 * distance
 
-	#get KEfinal
-	#kinEnergyFinal = kinEnergyInitial + potentialEnergyInitial
-
-	#convert KEfinal to kilotons
-	#return (kinEnergyFinal / 4.184e12)
 	return kinEnergyInitial
 
 def getVolumeMet(diameter):
