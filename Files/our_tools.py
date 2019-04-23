@@ -2,7 +2,6 @@
 #i.e. functions, classes, etc.
 import pandas as pandas
 
-df=read_csv("Datasets/meteorite-landings.csv")
 
 #input validation - double
 def validDouble(passPropmt):
