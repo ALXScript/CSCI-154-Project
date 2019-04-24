@@ -52,8 +52,8 @@ def getDiameterMet(density, mass):
 		mass = mass in grams
 
 	'''
-		top = 3 * M
-		bot = 4 * math.pi * density
-		radius = sqrt(top/bot)
+	top = (3 * mass)
+	bot = float(4 * math.pi * density)
+	radius = (math.sqrt(top/bot))
 		
-		return (radius * 2)
+	return (radius * 2)
