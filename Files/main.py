@@ -1,7 +1,8 @@
 #Main page for the application, including UI
-import crater_math
-import calculations
-import our_tools
+import crater_math as cmath
+import calculations as calc
+import our_tools as tool
+import references as rf
 
 #boolean for verifying user data
 exit = False
@@ -14,26 +15,37 @@ while exit != True:
     user_input = input("What would you like to do: ")
 
     #begin making the choices
+    #simulate your own crater
     if user_input == 'A' or user_input == 'a':
-        #begin Temporary_1 process
-        print("Case A")
+        craterDiameter, craterDepth = calc.simulateCustomCrater()
 
+        #display the diameter
+        print("\nThe diameter of the crater is %f meters wide!" % craterDiameter)
+        print("\nThe depth of the crater is %f meters deep!\n" % craterDepth)
+
+        rf.returnReferences(craterDiameter, craterDepth)
+
+    #Get Crater Data from Dataset
     elif user_input == 'B' or user_input == 'b':
         #begin Temporary_2 process
         print("Case B")
 
+    #still unknown
     elif user_input == 'C' or user_input == 'c':
         #begin Temporary_3 process
         print("Case C")
 
+    #still unknown
     elif user_input == 'D' or user_input == 'd':
         #begin Temporary_4 process
         print("Case D")
 
+    #Print the menu
     elif user_input == 'M' or user_input == 'm':
         #begin the display menu options process
         print(str_UI)
 
+    #quit the program
     elif user_input == 'Q' or user_input == 'q':
         #exit the program
         exit = True
