@@ -40,9 +40,9 @@ def solveKinEnergy(mass, velocity):
 		kinEnergy = kinetic energy in joules
 
 	'''
-	massKG = mass/1000.00
 	
-	kinEnergy = (.5) * massKG * pow(velocity, 2)
+	
+	kinEnergy = (.5) * mass * pow(velocity, 2)
 	return kinEnergy
 
 def getDiameterMet(density, mass):
@@ -57,3 +57,17 @@ def getDiameterMet(density, mass):
 	radius = (math.sqrt(top/bot))
 		
 	return (radius * 2)
+
+def dataKinEnergy(mass, velocity):
+	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
+
+		mass = mass of metoerite in g to convert to kg
+		s = velocity of meteorite in meters/second (according to webpage avg speed of metoerites is 20k m/s)
+
+		kinEnergy = kinetic energy in joules
+
+	'''
+	mass = mass/1000
+	
+	kinEnergy = (.5) * mass * pow(velocity, 2)
+	return kinEnergy
