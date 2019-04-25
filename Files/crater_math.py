@@ -13,9 +13,9 @@ def solveDiameter(craterCF, gravAcc, gravAccSurface, kinEnergy, densityImpactor,
 		densityImpactor = denity of impactor in g/ cubic cm
 		densitySurface = density of surface also g / cubic cm
 	'''
-
+	
 	diameter = .7 * craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((kinEnergy * (densityImpactor/densitySurface)), .2941)
-
+	print(diameter)
 	return diameter
 
 def solveKinEnergy(mass, velocity):
@@ -49,9 +49,63 @@ def getDiameterAsteroid(density, mass):
 	radius = math.sqrt(top/bot)
 
 	return (radius * 2)
+
 def calcdeth(diameter):
 	if (diameter <= 1400):
 		depth = diameter * math.tan(.1423)
 	else:
 		depth = diameter * math.tan(.0747)
 	return depth
+
+def dataKinEnergy(mass, velocity):
+	''' based off of: http://keyah.asu.edu/lessons/MeteorCrater/KM13.html
+
+		mass = mass of metoerite in kg
+		s = velocity of meteorite in km/s - convert to meters/second (according to webpage avg speed of metoerites is 20k m/s)
+
+		kinEnergy = kinetic energy in joules - Kg * m^2 / s^2
+
+		Convert Joules to KiloTons of TNT - j / 4.1842e12
+	'''
+	#convert velocity to M/s
+	velocityMeters = velocity * 1000
+	mass = mass / 1000
+	#get KEinitial and PEinitial
+	kinEnergyInitial = (.5) * mass * pow(velocityMeters, 2)
+
+	return kinEnergyInitial
+
+def dataDepth14(diameter):
+	
+	depth = diameter * math.tan(.1423)
+	return depth
+
+def dataDepth(diameter):
+	depth = depth = diameter * math.tan(.0747)
+	return depth
+
+def dataDiameter(craterCF, gravAcc, gravAccSurface, df, kinEnergy, cDia, densityImpactor, densitySurface):
+	'''	based off of: https://web.archive.org/web/20170404094017/palaeo.gly.bris.ac.uk/communication/brana/equation.html
+
+		craterCF = Crater Collapse Factor
+		gravAcc = Gravitational Acceleration at surface of Earth
+		gravAccSurface = Acceleration at the surface of body on which crater is formed
+		kinEnergy = kinetic energy of impactor
+		densityImpactor = denity of impactor in g/ cubic cm
+		densitySurface = density of surface also g / cubic cm
+	'''
+	densitySurface = float(densitySurface)
+	densityImpactor = float(densityImpactor)
+	df[cDia] = .7 * craterCF * pow((gravAcc/gravAccSurface), .1667) * pow((df[kinEnergy] * (densityImpactor/ densitySurface)), .2941)
+	return df
+
+
+
+
+
+
+
+
+
+
+
