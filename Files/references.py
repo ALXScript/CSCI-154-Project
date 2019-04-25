@@ -82,36 +82,41 @@ def returnReferences(passDiameter, passDepth):
     howManyShanghai = passDepth / shanghaiTowerHeight()
 
     #field references display
-    if howManySoccer >= 1:
-        print("That is %f Soccer fields!\n" % round(howManySoccer, 1))
+    if(passDiameter > 12.7e6 or passDepth > 12.7e6):
+        print("This object would destroy the Earth\n")
+    elif (passDiameter > 6.371e6 or passDepth > 6.371e6):
+        print("This object would destroy half of the Earth\n")
+    else:
+        if howManySoccer >= 1:
+            print("That is %f Soccer fields wide!\n" % round(howManySoccer, 1))
         
-    if howManyFootball >= 1:
-        print("That is %f Football fields!\n" % round(howManyFootball, 1))
+        if howManyFootball >= 1:
+            print("That is %f Football fields wide!\n" % round(howManyFootball, 1))
         
-    if howManyBasketball >= 1:
-        print("That is %f Basketball courts!\n" % round(howManyBasketball, 1))
+        if howManyBasketball >= 1:
+            print("That is %f Basketball courts wide!\n" % round(howManyBasketball, 1))
         
-    #building references display - American
-    if howManyStatueOfLiberty >= 1:
-        print("That is %f Statues of Liberty deep!\n" % howManyStatueOfLiberty)
+        #building references display - American
+        if howManyStatueOfLiberty >= 1:
+            print("That is %f Statues of Liberty deep!\n" % howManyStatueOfLiberty)
     
-    if howManyEmpireState >= 1:
-        print("That is %f Empire State Buildings deep!\n" % howManyEmpireState)
+        if howManyEmpireState >= 1:
+            print("That is %f Empire State Buildings deep!\n" % howManyEmpireState)
     
-    if howManySpaceNeedle >= 1:
-        print("That is %f Space Needles deep!\n" % howManySpaceNeedle)
+        if howManySpaceNeedle >= 1:
+            print("That is %f Space Needles deep!\n" % howManySpaceNeedle)
 
-    if howManyEiffelTowers >= 1:
-        print("That is %f Eiffel Towers deep!\n" % howManyEiffelTowers)
+        if howManyEiffelTowers >= 1:
+            print("That is %f Eiffel Towers deep!\n" % howManyEiffelTowers)
     
-    if howManyBigBen >= 1:
-        print("That is %f Big Bens deep!\n" % howManyBigBen)
+        if howManyBigBen >= 1:
+            print("That is %f Big Bens deep!\n" % howManyBigBen)
     
-    if howManyBurjKahlifa >= 1:
-        print("That is %f Burj Khalifas deep!\n" % howManyBurjKahlifa)
+        if howManyBurjKahlifa >= 1:
+            print("That is %f Burj Khalifas deep!\n" % howManyBurjKahlifa)
     
-    if howManyShanghai >= 1:
-        print("That is %f Shanghai Towers deep!\n" % howManyShanghai)
+        if howManyShanghai >= 1:
+            print("That is %f Shanghai Towers deep!\n" % howManyShanghai)
     
-    #print a new line
-    print()
+        #print a new line
+        print()
