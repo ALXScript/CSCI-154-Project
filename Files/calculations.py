@@ -13,7 +13,7 @@ def simulateCustomCrater():
     mass = cmath.getMass(densityImpactor, diameter)
                 
     #get the velocity of the Asteroid - in Km/s
-    velocity = tool.validFloat("\nPlease enter the Velocity of the asteroid in Kilometers/Second: ")
+    velocity = tool.validFloat("\nPlease enter the Velocity of the Asteroid in Kilometers/Second: ")
  
     #use the calculated mass and given velocity for KE - in Joules
     kinEnergy = cmath.solveKinEnergy(mass, velocity)
@@ -50,3 +50,18 @@ def simulateMoonCrater():
     moonCraterDepth = cmath.calcdeth(moonCraterDiameter)
 
     return moonCraterDiameter, moonCraterDepth
+
+def simulateDinosaurAsteroid():
+    dinoDiameter = 11000
+    dinoDensity = rf.dicProjectileDensity["dense"]
+    dinoMass = cmath.getMass(dinoDensity, dinoDiameter)
+    dinoVelocity = tool.validFloat("\nPlease enter the Velocity of the Asteroid in Kilometers/Second: ")
+    dinoKE = cmath.solveKinEnergy(dinoMass, dinoVelocity)
+    craterCF = 1.3
+    gravAcc = cmath.getGravAcc()
+    gravAccSurface = .006
+    densitySurface = tool.getDensityTarget("\nPlease select the Earth's density:\n(1) Sedimentary\n(2) Igneous\n")
+    dinoCraterDiameter = cmath.solveDiameter(1.3, gravAcc, gravAccSurface, dinoKE, dinoDensity, densitySurface)
+    dinoCraterDepth =  cmath.calcdeth(dinoCraterDiameter)
+
+    return dinoCraterDiameter, dinoCraterDepth
