@@ -1,6 +1,7 @@
 #separate script for performing the actual calculations from crater_math.py
 import crater_math as cmath
 import our_tools as tool
+import references as rf
 
 def simulateCustomCrater():
     #get the mass from the volume and density - in Kg
@@ -33,3 +34,19 @@ def simulateCustomCrater():
     craterDepth = cmath.calcdeth(craterDiameter)
 
     return craterDiameter, craterDepth
+
+def simulateMoonCrater():
+    moonDiameter = 3.472e6
+    moonDensity = rf.dicTargetDensity["igneous"]
+    moonMass = 7.34767309e22
+    moonVelocity = tool.validFloat("\nPlease enter the Velocity of the Moon in Kilometers/Second: ")
+    moonKE = cmath.solveKinEnergy(moonMass, moonVelocity)
+    craterCF = 1.3
+    gravAcc = cmath.getGravAcc()
+    gravAccSurface = .006
+    densitySurface = tool.getDensityTarget("\nPlease select the Earth's density:\n(1) Sedimentary\n(2) Igneous\n")
+
+    moonCraterDiameter = cmath.solveDiameter(1.3, gravAcc, gravAccSurface, moonKE, moonDensity, densitySurface)
+    moonCraterDepth = cmath.calcdeth(moonCraterDiameter)
+
+    return moonCraterDiameter, moonCraterDepth

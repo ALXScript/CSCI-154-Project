@@ -30,10 +30,16 @@ while exit != True:
         #begin Temporary_2 process
         print("Case B")
 
-    #still unknown
+    #Simulate the Moon
     elif user_input == 'C' or user_input == 'c':
-        #begin Temporary_3 process
-        print("Case C")
+        moonCraterDiameter, moonCraterDepth = calc.simulateMoonCrater()
+
+        #display the diameter
+        print("\nThe diameter of the crater is %f meters wide!" % moonCraterDiameter)
+        print("\nThe depth of the crater is %f meters deep!\n" % moonCraterDepth)
+
+        rf.returnReferences(moonCraterDiameter, moonCraterDepth)
+        
 
     #still unknown
     elif user_input == 'D' or user_input == 'd':
