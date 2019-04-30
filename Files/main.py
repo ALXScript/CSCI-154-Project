@@ -10,7 +10,7 @@ exit = False
 #UI while loop
 while exit != True:
     #String variable for the main menu UI
-    str_UI = "\nMenu: \nA: Simulate Your Own Crater\nB: Simulate Crater From Dataset\nC: Simulate the Moon hitting Earth\nD: Simulate the Asteroid that killed the dinosaurs\nM: Display these menu options\nQ: Exit the program\n"
+    str_UI = "\nMenu: \nA: Simulate Your Own Crater\nB: Simulate the Moon hitting Earth\nC: Simulate the Asteroid that killed the dinosaurs\nM: Display these menu options\nQ: Exit the program\n"
 
     user_input = input("What would you like to do: ")
 
@@ -20,33 +20,28 @@ while exit != True:
         craterDiameter, craterDepth = calc.simulateCustomCrater()
 
         #display the diameter
-        print("\nThe diameter of the crater is %f meters wide!" % craterDiameter)
-        print("\nThe depth of the crater is %f meters deep!\n" % craterDepth)
+        print("\nThe diameter of the crater is ", round(craterDiameter, 1) ," meters wide!")
+        print("\nThe depth of the crater is ", round(craterDepth, 1) ," meters deep!\n")
 
         rf.returnReferences(craterDiameter, craterDepth)
 
-    #Get Crater Data from Dataset
-    elif user_input == 'B' or user_input == 'b':
-        #begin Temporary_2 process
-        print("Case B")
-
     #Simulate the Moon
-    elif user_input == 'C' or user_input == 'c':
+    elif user_input == 'B' or user_input == 'b':
         moonCraterDiameter, moonCraterDepth = calc.simulateMoonCrater()
 
         #display the diameter
-        print("\nThe diameter of the crater is %f meters wide!" % moonCraterDiameter)
-        print("\nThe depth of the crater is %f meters deep!\n" % moonCraterDepth)
+        print("\nThe diameter of the crater is ", round(moonCraterDiameter,1) , " meters wide!")
+        print("\nThe depth of the crater is ", round(moonCraterDepth,1) , " meters deep!\n")
 
         rf.returnReferences(moonCraterDiameter, moonCraterDepth)
 
     #Simulate Asteroid that killed the dinosaurs
-    elif user_input == 'D' or user_input == 'd':
+    elif user_input == 'C' or user_input == 'c':
         dinoCraterDiameter, dinoCraterDepth = calc.simulateDinosaurAsteroid()
 
         #display the diameter
-        print("\nThe diameter of the crater is %f meters wide!" % dinoCraterDiameter)
-        print("\nThe depth of the crater is %f meters deep!\n" % dinoCraterDepth)
+        print("\nThe diameter of the crater is ", round(dinoCraterDiameter, 1) , " meters wide!")
+        print("\nThe depth of the crater is ", round(dinoCraterDepth, 1) , " meters deep!\n")
 
         rf.returnReferences(dinoCraterDiameter, dinoCraterDepth)
 
